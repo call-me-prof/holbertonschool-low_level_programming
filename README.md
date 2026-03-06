@@ -1,1 +1,1 @@
-Project: More functions, more nested loops
+This project contains functions for more nested loops.
