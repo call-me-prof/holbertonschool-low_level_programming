@@ -1,1 +1,1 @@
-Project: C - Pointers, arrays and strings
+This folder contains pointer, array, and string tasks.
