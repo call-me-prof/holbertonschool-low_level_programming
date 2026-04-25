@@ -3,6 +3,19 @@
 #include <stdlib.h>
 
 /**
+ * close_fd - Closes file descriptors and exits on failure.
+ * @fd: The file descriptor to be closed.
+ */
+void close_fd(int fd)
+{
+	if (close(fd) == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+		exit(100);
+	}
+}
+
+/**
  * main - copies the content of a file to another file.
  * @argc: argument count.
  * @argv: argument vector.
@@ -44,15 +57,7 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
-	if (close(from) == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", from);
-		exit(100);
-	}
-	if (close(to) == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", to);
-		exit(100);
-	}
+	close_fd(from);
+	close_fd(to);
 	return (0);
 }
