@@ -2,26 +2,26 @@
 #include <stdarg.h>
 
 /**
- * sum_them_all - دالة تحسب مجموع جميع البارامترات المرسلة إليها
- * @n: عدد البارامترات
+ * sum_them_all - returns the sum of all its parameters
+ * @n: number of parameters passed to the function
  *
- * Return: المجموع، أو 0 إذا كان n يساوي 0
+ * Return: sum of all parameters, or 0 if n is 0
  */
 int sum_them_all(const unsigned int n, ...)
 {
-    va_list ap;
-    unsigned int i;
-    int sum = 0;
+	va_list ap;
+	unsigned int i;
+	int sum = 0;
 
-    if (n == 0)
-        return (0);
+	if (n == 0)
+		return (0);
 
-    va_start(ap, n);
+	va_start(ap, n);
 
-    for (i = 0; i < n; i++)
-        sum += va_arg(ap, int);
+	for (i = 0; i < n; i++)
+		sum += va_arg(ap, int);
 
-    va_end(ap);
+	va_end(ap);
 
-    return (sum);
+	return (sum);
 }
